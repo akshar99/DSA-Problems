@@ -6,15 +6,10 @@ class Solution:
         first = second = float('inf')
 
         for n in nums:
-            print(n)
             if n <= first:
-                print("first")
-                print(first)
                 first = n
 
             elif n <= second:
-                print("second")
-                print(second)
                 second = n
 
             else:
