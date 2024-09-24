@@ -1,23 +1,25 @@
 class Solution:
     def maxVowels(self, s: str, k: int) -> int:
+        
         vowels = set('aeiou')
-        count = 0
         left = 0
         right = k
-        sub_count = 0
-        
-        for i in range(k):
-            if s[i] in vowels:
-                count += 1
+        sub_count = sum(1 for x in s[left:right] if x in vowels)
+        max_count = sub_count
 
-            max_count = count 
+        while left < right and right < len(s):
 
-        for i in range(k, len(s)):
-            if s[i] in vowels:
-                count += 1
-            if s[i -k ] in vowels:
-                count -= 1
+            if s[right] in vowels:
+                sub_count += 1
+            
+            if s[left] in vowels:
+                sub_count -= 1
 
-            max_count = max(max_count, count)
+            max_count = max(max_count, sub_count)
+            left += 1
+            right += 1
 
-        return max_count            
+        return max_count
+
+
+
