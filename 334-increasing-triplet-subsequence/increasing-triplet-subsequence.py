@@ -6,6 +6,7 @@ class Solution:
         first = second = float('inf')
 
         for n in nums:
+
             if n <= first:
                 first = n
 
@@ -15,7 +16,7 @@ class Solution:
             else:
                 return True
 
-        return False
+        return False 
 """
 This is the output
 
