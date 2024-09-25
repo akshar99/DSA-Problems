@@ -3,8 +3,8 @@ class Solution:
         current_sum = sum(nums[:k]) 
         max_sum = current_sum
 
-        for right in range(k, len(nums)):
-            current_sum += nums[right] - nums[right -k]
+        for r in range(k, len(nums)):
+            current_sum += nums[r] - nums[r-k]
             max_sum = max(max_sum, current_sum)
 
-        return max_sum / k
+        return max_sum/k
