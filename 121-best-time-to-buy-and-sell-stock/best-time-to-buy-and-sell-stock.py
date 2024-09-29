@@ -8,6 +8,6 @@ class Solution:
 
         for price in prices[1:]:
             maximum = max(maximum, price - minimum)
-            minimum = min(minimum, price)
+            minimum = min(price, minimum)
 
-        return maximum
+        return maximum 
