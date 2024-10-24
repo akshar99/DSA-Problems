@@ -1,16 +1,13 @@
 class Solution:
     def simplifyPath(self, path: str) -> str:
-        
-        files = []
-
+        dir_stack = []
         path = path.split("/")
-
+        
         for ele in path:
-            if files and ele =='..':
-                print(f"popping :: {ele} \n {files}")
-                files.pop()
-            elif ele not in ['.', '..', '']:
-                print(f"appending :: {ele} \n {files}")
-                files.append(ele)
+            if dir_stack and ele=='..':
+                dir_stack.pop()
 
-        return '/' + '/'.join(files)
+            elif ele not in ['.', '..', '']:
+                dir_stack.append(ele)
+
+        return "/" + "/".join(dir_stack)
