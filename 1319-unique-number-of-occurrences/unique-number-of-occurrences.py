@@ -1,15 +1,18 @@
 class Solution:
     def uniqueOccurrences(self, arr: List[int]) -> bool:
-        hash_map = {}
-
-        for ele in arr:
-            if ele in hash_map:
-                hash_map[ele]  += 1
+        hash_set = {}
+        for num in arr:
+            if num in hash_set:
+                hash_set[num] += 1
             else:
-                hash_map[ele] = 1
-        print(hash_map)
-        ls = []
-        for value in hash_map.values():
-            ls.append(value)
+                hash_set[num] = 0
 
-        return len(ls) == len(set(ls))
+        seen = []
+
+        for key, value in hash_set.items():
+            if value in seen:
+                return False
+            else:
+                seen.append(value)
+
+        return True
