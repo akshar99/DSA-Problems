@@ -4,7 +4,7 @@ class Solution:
         breadth = len(grid[0])
 
         transformed = [list(row) for row in zip(*grid)]
-
+        print(transformed)
         counter = 0
 
         for row in grid:
