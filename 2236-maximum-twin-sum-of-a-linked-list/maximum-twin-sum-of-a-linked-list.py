@@ -11,21 +11,20 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
 
-        #reverse second half of list
-        prev, current = None, slow
-
+        #reverse second half
+        current = slow
+        prev = None
         while current:
             next_node = current.next
             current.next = prev
             prev = current
             current = next_node
 
-        max_twin_sum = 0
-        first, second = head, prev
+        max_sum = 0
+        fast ,slow = head, prev
+        while slow:
+            max_sum = max(fast.val + slow.val, max_sum)
+            fast = fast.next
+            slow = slow.next
 
-        while second:
-            max_twin_sum = max(first.val + second.val, max_twin_sum)
-            first = first.next
-            second = second.next
-        
-        return max_twin_sum
+        return max_sum
